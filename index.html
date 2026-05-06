@@ -3,106 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nurul Sabila Ramadani | Fashion Designer Portfolio</title>
+    <title>Nurul Sabila Ramadani | Official Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Montserrat', sans-serif; background-color: #FFF5F7; }
-        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        body { font-family: 'Montserrat', sans-serif; background-color: #FFF5F7; overflow-x: hidden; }
+        h1, h2, h3, .welcome-text { font-family: 'Playfair Display', serif; }
         
-        /* Loading Screen */
+        /* INTRO WELCOME SCREEN */
         #loader {
-            position: fixed; inset: 0; background: white;
+            position: fixed; inset: 0; background: #000;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
-            z-index: 100; transition: opacity 0.8s ease-out, visibility 0.8s;
+            z-index: 1000; transition: all 1.2s cubic-bezier(0.7, 0, 0.3, 1);
         }
-        .progress-bar { width: 200px; height: 2px; background: #ffe4e6; margin-top: 20px; overflow: hidden; }
-        .progress-fill { width: 0%; height: 100%; background: #D53F8C; animation: load 2.5s forwards; }
-        @keyframes load { 0% { width: 0%; } 100% { width: 100%; } }
-        .fade-out { opacity: 0; visibility: hidden; }
+        
+        .welcome-msg {
+            color: white; text-align: center; opacity: 0;
+            transform: translateY(30px); animation: welcomeFade 4.5s forwards;
+        }
+
+        @keyframes welcomeFade {
+            20% { opacity: 1; transform: translateY(0); }
+            80% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-30px); }
+        }
+
+        .loader-finish { transform: translateY(-100%); visibility: hidden; }
+
+        /* CARD ANIMATION */
+        .card-fashion { transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1); }
+        .card-fashion:hover { transform: translateY(-10px); }
     </style>
 </head>
 <body class="text-gray-800">
 
     <div id="loader">
-        <h2 class="text-2xl font-bold" style="color: #D53F8C;">NSR DESIGN</h2>
-        <div class="progress-bar"><div class="progress-fill"></div></div>
-        <p class="text-[10px] mt-4 tracking-[0.3em] text-gray-400 uppercase">Menyiapkan Koleksi Pameran...</p>
+        <div class="welcome-msg px-6">
+            <p class="text-pink-400 tracking-[0.5em] text-[10px] mb-4 uppercase">Selamat Datang</p>
+            <h2 class="text-4xl italic mb-2">Nurul Sabila Ramadani</h2>
+            <div class="w-12 h-[1px] bg-white mx-auto my-6 opacity-30"></div>
+            <p class="text-gray-400 text-xs tracking-widest italic">"Menyulam Keindahan dalam Setiap Jahitan"</p>
+        </div>
     </div>
 
-    <div class="max-w-2xl mx-auto px-6 py-12">
-        <header class="text-center mb-16">
-            <div class="w-32 h-32 mx-auto bg-pink-200 rounded-full mb-4 overflow-hidden border-4 border-white shadow-lg">
-                <img src="IMG-20260506-WA0012.jpg" alt="Nurul Sabila Ramadani" class="w-full h-full object-cover">
+    <div class="max-w-2xl mx-auto px-6 py-16">
+        <header class="text-center mb-24" data-aos="fade-up" data-aos-duration="1500">
+            <div class="w-36 h-36 mx-auto bg-white rounded-full mb-6 overflow-hidden border-[6px] border-white shadow-2xl">
+                <img src="IMG-20260506-WA0012.jpg" alt="Nurul" class="w-full h-full object-cover">
             </div>
-            <h1 class="text-3xl font-bold" style="color: #D53F8C;">Nurul Sabila Ramadani</h1>
-            <p class="text-gray-500 text-xs uppercase tracking-widest mt-2">Fashion Designer / Author</p>
+            <h1 class="text-3xl font-bold tracking-tight" style="color: #D53F8C;">Nurul Sabila Ramadani</h1>
+            <p class="text-gray-400 text-[10px] uppercase tracking-[0.4em] mt-2">Fashion Designer / Author</p>
         </header>
 
-        <div class="space-y-12">
+        <div class="space-y-16">
             
-            <div class="bg-white p-4 rounded-3xl shadow-xl shadow-pink-100">
-                <img src="IMG-20260506-WA0018.jpg" class="w-full rounded-2xl mb-4" alt="Desain 1">
-                <h3 class="text-xl text-center">Desain Baju 1</h3>
+            <div class="card-fashion bg-white p-5 rounded-[2.5rem] shadow-xl shadow-pink-100" data-aos="fade-up">
+                <div class="overflow-hidden rounded-[2rem]">
+                    <img src="IMG-20260506-WA0018.jpg" class="w-full hover:scale-110 transition duration-[1.5s]" alt="Desain 1">
+                </div>
+                <h3 class="text-xl text-center mt-6">Elegant Rose</h3>
             </div>
 
-            <div class="bg-white p-4 rounded-3xl shadow-xl shadow-pink-100">
-                <img src="IMG-20260506-WA0014.jpg" class="w-full rounded-2xl mb-4" alt="Desain 2">
-                <h3 class="text-xl text-center">Desain Baju 2</h3>
+            <div class="card-fashion bg-white p-5 rounded-[2.5rem] shadow-xl shadow-pink-100" data-aos="fade-up">
+                <div class="overflow-hidden rounded-[2rem]">
+                    <img src="IMG-20260506-WA0014.jpg" class="w-full hover:scale-110 transition duration-[1.5s]" alt="Desain 2">
+                </div>
+                <h3 class="text-xl text-center mt-6">Midnight Silk</h3>
             </div>
 
-            <div class="bg-white p-4 rounded-3xl shadow-xl shadow-pink-100">
-                <img src="IMG-20260506-WA0015.jpg" class="w-full rounded-2xl mb-4" alt="Desain 3">
-                <h3 class="text-xl text-center">Desain Baju 3</h3>
+            <div class="card-fashion bg-white p-5 rounded-[2.5rem] shadow-xl shadow-pink-100" data-aos="fade-up">
+                <div class="overflow-hidden rounded-[2rem]">
+                    <img src="IMG-20260506-WA0015.jpg" class="w-full hover:scale-110 transition duration-[1.5s]" alt="Desain 3">
+                </div>
+                <h3 class="text-xl text-center mt-6">Blush Dream</h3>
             </div>
 
-            <div class="bg-white p-4 rounded-3xl shadow-xl shadow-pink-100">
-                <img src="IMG-20260506-WA0016.jpg" class="w-full rounded-2xl mb-4" alt="Desain 4">
-                <h3 class="text-xl text-center">Desain Baju 4</h3>
+            <div class="card-fashion bg-white p-5 rounded-[2.5rem] shadow-xl shadow-pink-100" data-aos="fade-up">
+                <div class="overflow-hidden rounded-[2rem]">
+                    <img src="IMG-20260506-WA0016.jpg" class="w-full hover:scale-110 transition duration-[1.5s]" alt="Desain 4">
+                </div>
+                <h3 class="text-xl text-center mt-6">Classic Peony</h3>
             </div>
 
-            <div class="bg-white p-4 rounded-3xl shadow-xl shadow-pink-100">
-                <img src="IMG-20260504-WA0025.jpg" class="w-full rounded-2xl mb-4" alt="Desain 5">
-                <h3 class="text-xl text-center">Desain Baju 5</h3>
+            <div class="card-fashion bg-white p-5 rounded-[2.5rem] shadow-xl shadow-pink-100" data-aos="fade-up">
+                <div class="overflow-hidden rounded-[2rem]">
+                    <img src="IMG-20260504-WA0025.jpg" class="w-full hover:scale-110 transition duration-[1.5s]" alt="Desain 5">
+                </div>
+                <h3 class="text-xl text-center mt-6">Golden Hour</h3>
             </div>
 
-            <div class="bg-white p-4 rounded-3xl shadow-xl shadow-pink-100">
-                <img src="FOTO_BAJU_6.jpg" class="w-full rounded-2xl mb-4" alt="Desain 6">
-                <h3 class="text-xl text-center">Desain Baju 6</h3>
+            <div class="card-fashion bg-white p-5 rounded-[2.5rem] shadow-xl shadow-pink-100" data-aos="fade-up">
+                <img src="FOTO_BAJU_6.jpg" class="w-full rounded-[2rem]" alt="Desain 6">
+                <h3 class="text-xl text-center mt-6">Collection VI</h3>
             </div>
 
-            <div class="bg-white p-4 rounded-3xl shadow-xl shadow-pink-100">
-                <img src="FOTO_BAJU_7.jpg" class="w-full rounded-2xl mb-4" alt="Desain 7">
-                <h3 class="text-xl text-center">Desain Baju 7</h3>
+            <div class="card-fashion bg-white p-5 rounded-[2.5rem] shadow-xl shadow-pink-100" data-aos="fade-up">
+                <img src="FOTO_BAJU_7.jpg" class="w-full rounded-[2rem]" alt="Desain 7">
+                <h3 class="text-xl text-center mt-6">Collection VII</h3>
             </div>
 
-            <div class="bg-white p-4 rounded-3xl shadow-xl shadow-pink-100">
-                <img src="FOTO_BAJU_8.jpg" class="w-full rounded-2xl mb-4" alt="Desain 8">
-                <h3 class="text-xl text-center">Desain Baju 8</h3>
+            <div class="card-fashion bg-white p-5 rounded-[2.5rem] shadow-xl shadow-pink-100" data-aos="fade-up">
+                <img src="FOTO_BAJU_8.jpg" class="w-full rounded-[2rem]" alt="Desain 8">
+                <h3 class="text-xl text-center mt-6">Collection VIII</h3>
             </div>
 
-            <div class="bg-white p-4 rounded-3xl shadow-xl shadow-pink-100">
-                <img src="FOTO_BAJU_9.jpg" class="w-full rounded-2xl mb-4" alt="Desain 9">
-                <h3 class="text-xl text-center">Desain Baju 9</h3>
+            <div class="card-fashion bg-white p-5 rounded-[2.5rem] shadow-xl shadow-pink-100" data-aos="fade-up">
+                <img src="FOTO_BAJU_9.jpg" class="w-full rounded-[2rem]" alt="Desain 9">
+                <h3 class="text-xl text-center mt-6">Collection IX</h3>
             </div>
 
-            <div class="bg-white p-4 rounded-3xl shadow-xl shadow-pink-100">
-                <img src="FOTO_BAJU_10.jpg" class="w-full rounded-2xl mb-4" alt="Desain 10">
-                <h3 class="text-xl text-center">Desain Baju 10</h3>
+            <div class="card-fashion bg-white p-5 rounded-[2.5rem] shadow-xl shadow-pink-100" data-aos="fade-up">
+                <img src="FOTO_BAJU_10.jpg" class="w-full rounded-[2rem]" alt="Desain 10">
+                <h3 class="text-xl text-center mt-6">Collection X</h3>
             </div>
 
         </div>
 
-        <footer class="mt-20 text-center text-gray-400 text-[10px] tracking-widest uppercase">
-            &copy; 2026 Nurul Sabila Ramadani
+        <footer class="mt-32 text-center">
+            <div data-aos="zoom-in" class="mb-10">
+                <a href="https://wa.me/628123456789" class="bg-black text-white px-10 py-4 rounded-full text-[10px] tracking-widest uppercase hover:bg-pink-600 transition duration-500">Hubungi Designer</a>
+            </div>
+            <p class="text-[9px] text-gray-300 tracking-[0.4em] uppercase border-t border-pink-50 pt-10">
+                &copy; 2026 Nurul Sabila Ramadani
+            </p>
         </footer>
     </div>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        AOS.init({ duration: 1200, once: true });
+        
         window.addEventListener('load', () => {
             setTimeout(() => {
-                document.getElementById('loader').classList.add('fade-out');
-            }, 3000);
+                document.getElementById('loader').classList.add('loader-finish');
+            }, 5000); // Intro muncul selama 5 detik
         });
     </script>
 </body>
