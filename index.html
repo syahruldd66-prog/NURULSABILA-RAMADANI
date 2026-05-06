@@ -3,139 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nurul Sabila Ramadani | Official Portfolio</title>
+    <title>Nurul Sabila Ramadani | High-End Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Montserrat', sans-serif; background-color: #FFF5F7; overflow-x: hidden; }
-        h1, h2, h3, .welcome-text { font-family: 'Playfair Display', serif; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
         
-        /* INTRO WELCOME SCREEN */
+        /* SLOW CINEMATIC REVEAL */
         #loader {
-            position: fixed; inset: 0; background: #000;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            z-index: 1000; transition: all 1.2s cubic-bezier(0.7, 0, 0.3, 1);
+            position: fixed; inset: 0; display: flex; z-index: 1000; pointer-events: none;
+        }
+        .shutter {
+            flex: 1; background: #000; 
+            transition: transform 1.8s cubic-bezier(0.7, 0, 0.3, 1);
+        }
+        .shutter.left { transform-origin: left; }
+        .shutter.right { transform-origin: right; }
+        
+        #loader-text {
+            position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+            z-index: 1001; color: white; text-align: center; pointer-events: none;
+        }
+        .reveal-box { overflow: hidden; }
+        .reveal-text { 
+            display: block; font-size: 1.5rem; letter-spacing: 0.8em; text-transform: uppercase;
+            transform: translateY(100%); 
+            animation: slideUp 1.2s forwards cubic-bezier(0.2, 1, 0.3, 1);
         }
         
-        .welcome-msg {
-            color: white; text-align: center; opacity: 0;
-            transform: translateY(30px); animation: welcomeFade 4.5s forwards;
+        @keyframes slideUp { to { transform: translateY(0); } }
+
+        .loaded .shutter.left { transform: translateX(-100%); }
+        .loaded .shutter.right { transform: translateX(100%); }
+        .loaded #loader-text { 
+            opacity: 0; 
+            transform: scale(0.95); 
+            transition: opacity 1.2s ease, transform 1.2s ease; 
         }
 
-        @keyframes welcomeFade {
-            20% { opacity: 1; transform: translateY(0); }
-            80% { opacity: 1; transform: translateY(0); }
-            100% { opacity: 0; transform: translateY(-30px); }
-        }
-
-        .loader-finish { transform: translateY(-100%); visibility: hidden; }
-
-        /* PROFILE FOTO ANIMATION */
+        /* PROFILE ANIMATION */
         .profile-frame {
+            animation: floating 4s ease-in-out infinite;
             transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
         .profile-frame:hover {
-            transform: scale(1.05) rotate(3deg);
-            box-shadow: 0 30px 60px -12px rgba(213, 63, 140, 0.3);
+            transform: scale(1.08) rotate(2deg) !important;
+            box-shadow: 0 40px 80px -15px rgba(213, 63, 140, 0.3);
         }
 
-        /* CARD ANIMATION */
-        .card-fashion { transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1); }
-        .card-fashion:hover { transform: translateY(-10px); }
+        .card-fashion { transition: all 0.6s ease; }
+        .card-fashion:hover { transform: translateY(-12px); }
     </style>
 </head>
 <body class="text-gray-800">
 
-    <div id="loader">
-        <div class="welcome-msg px-6">
-            <p class="text-pink-400 tracking-[0.5em] text-[10px] mb-4 uppercase">Selamat Datang</p>
-            <h2 class="text-4xl italic mb-2">Nurul Sabila Ramadani</h2>
-            <div class="w-12 h-[1px] bg-white mx-auto my-6 opacity-30"></div>
-            <p class="text-gray-400 text-xs tracking-widest italic">"Menyulam Keindahan dalam Setiap Jahitan"</p>
+    <div id="loader-text">
+        <div class="reveal-box px-4">
+            <span class="reveal-text">NSR DESIGN</span>
+            <div class="w-16 h-[1px] bg-pink-500 mx-auto mt-6 opacity-40 animate-pulse"></div>
+            <p class="text-[8px] mt-4 tracking-[0.5em] text-gray-400 uppercase italic">Collection 2026</p>
         </div>
+    </div>
+    <div id="loader">
+        <div class="shutter left"></div>
+        <div class="shutter right"></div>
     </div>
 
     <div class="max-w-2xl mx-auto px-6 py-16">
         <header class="text-center mb-24">
-            <div class="profile-frame w-36 h-36 mx-auto bg-white rounded-full mb-6 overflow-hidden border-[6px] border-white shadow-2xl" data-aos="zoom-out" data-aos-duration="1500" data-aos-delay="500">
-                <img src="IMG-20260506-WA0012.jpg" alt="Nurul" class="w-full h-full object-cover">
+            <div class="profile-frame w-40 h-40 mx-auto bg-white rounded-full mb-8 overflow-hidden border-[6px] border-white shadow-2xl" data-aos="zoom-in" data-aos-duration="1500">
+                <img src="IMG-20260506-WA0012.jpg" alt="Nurul Sabila" class="w-full h-full object-cover">
             </div>
-            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
-                <h1 class="text-3xl font-bold tracking-tight" style="color: #D53F8C;">Nurul Sabila Ramadani</h1>
-                <p class="text-gray-400 text-[10px] uppercase tracking-[0.4em] mt-2">Fashion Designer / Author</p>
+            <div data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
+                <h1 class="text-3xl font-bold tracking-tight text-pink-600">Nurul Sabila Ramadani</h1>
+                <p class="text-gray-400 text-[10px] uppercase tracking-[0.4em] mt-3 font-semibold">Fashion Designer</p>
             </div>
         </header>
 
-        <div class="space-y-16">
-            
-            <div class="card-fashion bg-white p-5 rounded-[2.5rem] shadow-xl shadow-pink-100" data-aos="fade-up">
+        <div class="space-y-20">
+            <div class="card-fashion bg-white p-5 rounded-[2.5rem] shadow-xl shadow-pink-50" data-aos="fade-up">
                 <div class="overflow-hidden rounded-[2rem]">
-                    <img src="IMG-20260506-WA0018.jpg" class="w-full hover:scale-110 transition duration-[1.5s]" alt="Desain 1">
+                    <img src="IMG-20260506-WA0018.jpg" class="w-full hover:scale-110 transition duration-[2s]" alt="Koleksi 1">
                 </div>
                 <h3 class="text-xl text-center mt-6">Elegant Rose</h3>
             </div>
 
-            <div class="card-fashion bg-white p-5 rounded-[2.5rem] shadow-xl shadow-pink-100" data-aos="fade-up">
+            <div class="card-fashion bg-white p-5 rounded-[2.5rem] shadow-xl shadow-pink-50" data-aos="fade-up">
                 <div class="overflow-hidden rounded-[2rem]">
-                    <img src="IMG-20260506-WA0014.jpg" class="w-full hover:scale-110 transition duration-[1.5s]" alt="Desain 2">
+                    <img src="IMG-20260506-WA0014.jpg" class="w-full hover:scale-110 transition duration-[2s]" alt="Koleksi 2">
                 </div>
                 <h3 class="text-xl text-center mt-6">Midnight Silk</h3>
             </div>
 
-            <div class="card-fashion bg-white p-5 rounded-[2.5rem] shadow-xl shadow-pink-100" data-aos="fade-up">
+            <div class="card-fashion bg-white p-5 rounded-[2.5rem] shadow-xl shadow-pink-50" data-aos="fade-up">
                 <div class="overflow-hidden rounded-[2rem]">
-                    <img src="IMG-20260506-WA0015.jpg" class="w-full hover:scale-110 transition duration-[1.5s]" alt="Desain 3">
+                    <img src="IMG-20260506-WA0015.jpg" class="w-full hover:scale-110 transition duration-[2s]" alt="Koleksi 3">
                 </div>
                 <h3 class="text-xl text-center mt-6">Blush Dream</h3>
             </div>
 
-            <div class="card-fashion bg-white p-5 rounded-[2.5rem] shadow-xl shadow-pink-100" data-aos="fade-up">
+            <div class="card-fashion bg-white p-5 rounded-[2.5rem] shadow-xl shadow-pink-50" data-aos="fade-up">
                 <div class="overflow-hidden rounded-[2rem]">
-                    <img src="IMG-20260506-WA0016.jpg" class="w-full hover:scale-110 transition duration-[1.5s]" alt="Desain 4">
+                    <img src="IMG-20260506-WA0016.jpg" class="w-full hover:scale-110 transition duration-[2s]" alt="Koleksi 4">
                 </div>
                 <h3 class="text-xl text-center mt-6">Classic Peony</h3>
             </div>
 
-            <div class="card-fashion bg-white p-5 rounded-[2.5rem] shadow-xl shadow-pink-100" data-aos="fade-up">
+            <div class="card-fashion bg-white p-5 rounded-[2.5rem] shadow-xl shadow-pink-50" data-aos="fade-up">
                 <div class="overflow-hidden rounded-[2rem]">
-                    <img src="IMG-20260504-WA0025.jpg" class="w-full hover:scale-110 transition duration-[1.5s]" alt="Desain 5">
+                    <img src="IMG-20260504-WA0025.jpg" class="w-full hover:scale-110 transition duration-[2s]" alt="Koleksi 5">
                 </div>
                 <h3 class="text-xl text-center mt-6">Golden Hour</h3>
             </div>
-
-            <div class="card-fashion bg-white p-5 rounded-[2.5rem] shadow-xl shadow-pink-100" data-aos="fade-up">
-                <img src="FOTO_BAJU_6.jpg" class="w-full rounded-[2rem]" alt="Desain 6">
-                <h3 class="text-xl text-center mt-6">Collection VI</h3>
-            </div>
-
-            <div class="card-fashion bg-white p-5 rounded-[2.5rem] shadow-xl shadow-pink-100" data-aos="fade-up">
-                <img src="FOTO_BAJU_7.jpg" class="w-full rounded-[2rem]" alt="Desain 7">
-                <h3 class="text-xl text-center mt-6">Collection VII</h3>
-            </div>
-
-            <div class="card-fashion bg-white p-5 rounded-[2.5rem] shadow-xl shadow-pink-100" data-aos="fade-up">
-                <img src="FOTO_BAJU_8.jpg" class="w-full rounded-[2rem]" alt="Desain 8">
-                <h3 class="text-xl text-center mt-6">Collection VIII</h3>
-            </div>
-
-            <div class="card-fashion bg-white p-5 rounded-[2.5rem] shadow-xl shadow-pink-100" data-aos="fade-up">
-                <img src="FOTO_BAJU_9.jpg" class="w-full rounded-[2rem]" alt="Desain 9">
-                <h3 class="text-xl text-center mt-6">Collection IX</h3>
-            </div>
-
-            <div class="card-fashion bg-white p-5 rounded-[2.5rem] shadow-xl shadow-pink-100" data-aos="fade-up">
-                <img src="FOTO_BAJU_10.jpg" class="w-full rounded-[2rem]" alt="Desain 10">
-                <h3 class="text-xl text-center mt-6">Collection X</h3>
-            </div>
-
         </div>
 
         <footer class="mt-32 text-center">
-            <div data-aos="zoom-in" class="mb-10">
-                <a href="https://wa.me/628123456789" class="bg-black text-white px-10 py-4 rounded-full text-[10px] tracking-widest uppercase hover:bg-pink-600 transition duration-500 shadow-lg shadow-pink-100">Hubungi Designer</a>
+            <div data-aos="zoom-in" class="mb-12">
+                <a href="https://wa.me/628123456789" class="bg-black text-white px-10 py-4 rounded-full text-[10px] tracking-widest uppercase hover:bg-pink-600 transition duration-700 shadow-xl">Contact Designer</a>
             </div>
-            <p class="text-[9px] text-gray-300 tracking-[0.4em] uppercase border-t border-pink-50 pt-10">
+            <p class="text-[9px] text-gray-300 tracking-[0.4em] uppercase border-t border-pink-50 pt-10 pb-16">
                 &copy; 2026 Nurul Sabila Ramadani
             </p>
         </footer>
@@ -143,14 +135,13 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Inisialisasi library animasi scroll
-        AOS.init({ duration: 1200, once: true });
+        AOS.init({ duration: 1500, once: true });
         
-        // Timer untuk menutup layar "Selamat Datang"
         window.addEventListener('load', () => {
+            // Loader tampil selama 4 detik agar sinematik
             setTimeout(() => {
-                document.getElementById('loader').classList.add('loader-finish');
-            }, 5000); // 5 detik biar pengunjung sempat baca teks sambutannya
+                document.body.classList.add('loaded');
+            }, 4000); 
         });
     </script>
 </body>
