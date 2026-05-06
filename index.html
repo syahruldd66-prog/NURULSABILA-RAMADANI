@@ -31,6 +31,15 @@
 
         .loader-finish { transform: translateY(-100%); visibility: hidden; }
 
+        /* PROFILE FOTO ANIMATION */
+        .profile-frame {
+            transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .profile-frame:hover {
+            transform: scale(1.05) rotate(3deg);
+            box-shadow: 0 30px 60px -12px rgba(213, 63, 140, 0.3);
+        }
+
         /* CARD ANIMATION */
         .card-fashion { transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1); }
         .card-fashion:hover { transform: translateY(-10px); }
@@ -48,12 +57,14 @@
     </div>
 
     <div class="max-w-2xl mx-auto px-6 py-16">
-        <header class="text-center mb-24" data-aos="fade-up" data-aos-duration="1500">
-            <div class="w-36 h-36 mx-auto bg-white rounded-full mb-6 overflow-hidden border-[6px] border-white shadow-2xl">
+        <header class="text-center mb-24">
+            <div class="profile-frame w-36 h-36 mx-auto bg-white rounded-full mb-6 overflow-hidden border-[6px] border-white shadow-2xl" data-aos="zoom-out" data-aos-duration="1500" data-aos-delay="500">
                 <img src="IMG-20260506-WA0012.jpg" alt="Nurul" class="w-full h-full object-cover">
             </div>
-            <h1 class="text-3xl font-bold tracking-tight" style="color: #D53F8C;">Nurul Sabila Ramadani</h1>
-            <p class="text-gray-400 text-[10px] uppercase tracking-[0.4em] mt-2">Fashion Designer / Author</p>
+            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
+                <h1 class="text-3xl font-bold tracking-tight" style="color: #D53F8C;">Nurul Sabila Ramadani</h1>
+                <p class="text-gray-400 text-[10px] uppercase tracking-[0.4em] mt-2">Fashion Designer / Author</p>
+            </div>
         </header>
 
         <div class="space-y-16">
@@ -122,7 +133,7 @@
 
         <footer class="mt-32 text-center">
             <div data-aos="zoom-in" class="mb-10">
-                <a href="https://wa.me/628123456789" class="bg-black text-white px-10 py-4 rounded-full text-[10px] tracking-widest uppercase hover:bg-pink-600 transition duration-500">Hubungi Designer</a>
+                <a href="https://wa.me/628123456789" class="bg-black text-white px-10 py-4 rounded-full text-[10px] tracking-widest uppercase hover:bg-pink-600 transition duration-500 shadow-lg shadow-pink-100">Hubungi Designer</a>
             </div>
             <p class="text-[9px] text-gray-300 tracking-[0.4em] uppercase border-t border-pink-50 pt-10">
                 &copy; 2026 Nurul Sabila Ramadani
@@ -132,12 +143,14 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Inisialisasi library animasi scroll
         AOS.init({ duration: 1200, once: true });
         
+        // Timer untuk menutup layar "Selamat Datang"
         window.addEventListener('load', () => {
             setTimeout(() => {
                 document.getElementById('loader').classList.add('loader-finish');
-            }, 5000); // Intro muncul selama 5 detik
+            }, 5000); // 5 detik biar pengunjung sempat baca teks sambutannya
         });
     </script>
 </body>
