@@ -3,30 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nurul Sabila Ramadani | Fashion Designer Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Nurul Sabila Ramadani | Fashion Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Montserrat', sans-serif; background-color: #FFF5F7; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        .pink-text { color: #D53F8C; }
+    </style>
 </head>
-<body class="text-gray-800 bg-soft-pink-bg">
+<body>
 
-    <nav class="navbar">
-        <div class="logo">NSR.</div>
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#koleksi">Koleksi</a>
-            <a href="#tentang">Tentang</a>
-            <a href="#kontak">Kontak</a>
+    <header class="py-10 text-center">
+        <h1 class="text-4xl font-bold pink-text">NSR</h1>
+        <p class="tracking-widest text-gray-500 text-sm uppercase">Fashion Designer</p>
+    </header>
+
+    <main class="max-w-md mx-auto px-6 pb-20">
+        <div class="bg-white p-4 rounded-3xl shadow-xl shadow-pink-100">
+            
+            <img src="IMG-20260504-WA0155.jpg" alt="Koleksi Nurul" class="w-full rounded-2xl mb-6 shadow-sm">
+
+            <div class="text-center">
+                <h2 class="text-2xl mb-2">Pink Blossom Elegance</h2>
+                <p class="text-pink-400 font-semibold mb-4 italic text-sm">Koleksi Pameran Busana 2026</p>
+                
+                <hr class="border-pink-50 mb-4">
+                
+                <p class="text-gray-400 text-xs uppercase tracking-widest">Designed By</p>
+                <p class="text-gray-800 font-medium">Nurul Sabila Ramadani</p>
+            </div>
+
         </div>
-    </nav>
 
-    <section id="home" class="hero-section">
-        <span class="subtitle">Fashion Designer Portfolio</span>
-        <h1>Nurul Sabila <br> Ramadani</h1>
-        <p class="description">"Mendefinisikan ulang keanggunan melalui palet warna yang berani."</p>
-        <a href="#koleksi" class="btn-primary">Eksplorasi Karya</a>
-    </section>
+        <footer class="mt-12 text-center text-gray-400 text-xs">
+            <p>&copy; 2026 Nurul Sabila Ramadani Portfolio</p>
+        </footer>
+    </main>
 
-    <script src="script.js"></script>
 </body>
 </html>
